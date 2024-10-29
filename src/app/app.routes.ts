@@ -25,6 +25,10 @@ export const routes: Routes = [
   {path: 'books', component: BooksComponent,
     children: booksRoutes
   },
+  {path: 'authors',
+    loadComponent: () => import('./authors/authors.component').then(m => m.AuthorsComponent)
+  },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: HomeComponent}
 ];
+
