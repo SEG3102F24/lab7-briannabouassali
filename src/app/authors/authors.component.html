@@ -1,11 +1,18 @@
-<form (ngSubmit)="fetchAuthor()">
-    <label for="authorId">Author ID</label>
-    <input type="number" [(ngModel)]="authorId" name="authorId" required />
-    <button type="submit">Submit</button>
-</form>
-<div *ngIf="author">
-    <h3>Author Details</h3>
-    <p>First Name: {{author.firstName}}</p>
-    <p>Last Name: {{author.lastName}}</p>
+<div class="author-page-container">
+
+    <form (ngSubmit)="fetchAuthor()" class="author-form">
+      <label for="authorId">Author ID</label>
+      <input type="number" [(ngModel)]="authorId" name="authorId" required />
+      <button type="submit">Submit</button>
+    </form>
+  
+    <div *ngIf="author" class="author-details">
+      <h3>Author Details</h3>
+      <p>First Name: {{ author.firstName }}</p>
+      <p>Last Name: {{ author.lastName }}</p>
+    </div>
+  
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    
 </div>
-<div *ngIf="errorMessage">{{ errorMessage }}</div>
+  
